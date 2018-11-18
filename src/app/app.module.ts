@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AdminComponent } from './modules/admin/admin.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AuthGuardService } from './services/guards/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -10,9 +12,10 @@ import { AdminComponent } from './modules/admin/admin.component';
     AdminComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
