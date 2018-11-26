@@ -1,3 +1,40 @@
-<p>
-  battle works!
-</p>
+<section class="section">
+  <div class="container">
+    <h1 class="title">Battle</h1>
+    <div class="columns users">
+      <div class="column">
+       <div class="user">
+        <h3>User One</h3>
+        <form [formGroup]="userOneForm" (ngSubmit)="submitUser(userOneForm)">
+          <div class="field">
+            <div class="control">
+              <input class="input is-medium" type="text" placeholder="User 1" name="user_one" formControlName="userOne">
+            </div>
+          </div>
+
+          <button class="button is-medium is-primary"><span>Submit</span></button>
+        </form>
+       </div>
+       <app-user-card></app-user-card>
+      </div>
+      <div class="column">
+        <div class="user">
+          <h3>User Two</h3>
+          <form [formGroup]="userTwoForm" (ngSubmit)="submitUser(userTwoForm)">
+            <div class="field">
+              <div class="control">
+                <input class="input is-medium" type="text" placeholder="User 2" name="user_two" formControlName="userTwo">
+              </div>
+            </div>
+            <button class="button is-medium is-primary"><span>Submit</span></button>
+          </form>
+       </div>
+       <app-user-card></app-user-card>
+      </div>
+    </div>
+
+    <div class="btn-fight">
+      <button class="button is-medium is-dark"><span>Fight</span></button>
+    </div>
+  </div>
+</section>

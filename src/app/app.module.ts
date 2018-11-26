@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { AdminComponent } from './modules/admin/admin.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthGuardService } from './services/guards/auth-guard.service';
-
+import { SharedModule } from './modules/shared/shared.module';
 @NgModule({
   declarations: [
     AppComponent,

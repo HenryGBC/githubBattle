@@ -3,11 +3,15 @@ import { CommonModule } from '@angular/common';
 
 import { BattleRoutingModule } from './battle-routing.module';
 import { BattleComponent } from './battle.component';
+import { SharedModule } from '../shared/shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
-    BattleRoutingModule
+    BattleRoutingModule,
+    SharedModule,
+    ReactiveFormsModule
   ],
   declarations: [BattleComponent]
 })

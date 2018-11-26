@@ -12,6 +12,10 @@ const routes: Routes = [
       {
         path: 'battle',
         loadChildren: './modules/battle/battle.module#BattleModule'
+      },
+      {
+        path: 'search',
+        loadChildren: './modules/search/search.module#SearchModule'
       }
     ]
   },

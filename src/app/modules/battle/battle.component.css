@@ -1,0 +1,35 @@
+.users{
+    width: 100%;
+    max-width: 769px;
+    margin: 0 auto;
+    
+}
+
+.users .user{
+    text-align: center;
+}
+.users .user h3{
+    font-size: 30px;
+    font-weight: 600;
+}
+.users .user .field{
+    width: 100%;
+    max-width: 220px;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+
+
+
+.btn-fight{
+    text-align: center;
+    margin-top: 30px;
+}
+.btn-fight button{
+    width: 280px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 13px;
+}

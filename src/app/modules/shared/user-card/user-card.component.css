@@ -1,0 +1,29 @@
+.card{
+    margin-top: 20px; 
+}
+.card .avatar{
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    margin: 0 auto;
+    padding: 15px;
+}
+.card .avatar img{
+    border-radius: 50%;
+}
+.card .card-content .username{
+    border-bottom: 1px solid #cacaca;
+    border-top: 1px solid #cacaca;
+    padding: 15px 0;
+    margin-bottom: 15px;
+}
+.card .card-content .username h2{
+    font-size: 20px;
+    font-weight: 700;
+}
+.card .card-content .username h4{
+    font-weight: 500;
+}
+.card .card-content .username p{
+    font-size: 14px;
+}
