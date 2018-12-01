@@ -10,12 +10,13 @@
             <div class="control">
               <input class="input is-medium" type="text" placeholder="User 1" name="user_one" formControlName="userOne">
             </div>
+            <p class="error has-text-danger is-size-7 is-uppercase has-text-weight-bold" *ngIf="manageUsers.userOne.errors.valid">User Empty</p>
+            <p class="error has-text-danger is-size-7 is-uppercase has-text-weight-bold" *ngIf="manageUsers.userOne.errors.backend">Error User</p>
           </div>
-
-          <button class="button is-medium is-primary"><span>Submit</span></button>
+          <button class="button is-medium is-primary" [ngClass]="{'is-loading': manageUsers.userOne.loading}"><span>Submit</span></button>
         </form>
        </div>
-       <app-user-card></app-user-card>
+       <app-user-card *ngIf="userOne" [user]="userOne" (clearHandler)="clear($event, 'userOne')"></app-user-card>
       </div>
       <div class="column">
         <div class="user">
@@ -25,15 +26,17 @@
               <div class="control">
                 <input class="input is-medium" type="text" placeholder="User 2" name="user_two" formControlName="userTwo">
               </div>
+              <p class="error has-text-danger is-size-7 is-uppercase has-text-weight-bold" *ngIf="manageUsers.userTwo.errors.valid">User Empty</p>
+            <p class="error has-text-danger is-size-7 is-uppercase has-text-weight-bold" *ngIf="manageUsers.userTwo.errors.backend">Error User</p>
             </div>
-            <button class="button is-medium is-primary"><span>Submit</span></button>
+            <button class="button is-medium is-primary" [ngClass]="{'is-loading': manageUsers.userTwo.loading}"><span>Submit</span></button>
           </form>
        </div>
-       <app-user-card></app-user-card>
+       <app-user-card *ngIf="userTwo" [user]="userTwo" (clearHandler)="clear($event, 'userTwo')"></app-user-card>
       </div>
     </div>
 
-    <div class="btn-fight">
+    <div class="btn-fight" *ngIf="userOne && userTwo">
       <button class="button is-medium is-dark"><span>Fight</span></button>
     </div>
   </div>

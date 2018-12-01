@@ -1,20 +1,21 @@
 <div class="card">
   <div class="avatar">
-    <img src="https://via.placeholder.com/450" alt="">
+    <img src="{{user.avatar_url}}" alt="">
   </div>
   <div class="card-content">
     <div class="username">
-      <h2>HenryGBC</h2>
-      <h4>Henry Bravo</h4>
-      <p>Full Stack Developer @Backstartup | Code Passion</p>
+      <h2>{{user.login}}</h2>
+      <h4>{{user.name}}</h4>
+      <p>{{user.bio}}</p>
     </div>
     <div class="skills">
       <ul>
-        <li><strong>Public Repos</strong>: <span>58</span></li>
-        <li><strong>Public Gists</strong>: <span>10</span></li>
-        <li><strong>Followers</strong>: <span>17</span></li>
-        <li><strong>Following</strong>: <span>20</span></li>
+        <li><strong>Public Repos</strong>: <span>{{user.public_repos}}</span></li>
+        <li><strong>Public Gists</strong>: <span>{{user.public_gists}}</span></li>
+        <li><strong>Followers</strong>: <span>{{user.followers}}</span></li>
+        <li><strong>Following</strong>: <span>{{user.following}}</span></li>
       </ul>
     </div>
+    <button class="button is-medium is-dark" (click)="clear()">Clear</button>
   </div>
 </div>

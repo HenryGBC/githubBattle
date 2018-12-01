@@ -31,10 +31,7 @@ export class BattleComponent implements OnInit {
   submitUser(form: any){
     console.log(form.value);
     const typeUser = form.value.type;
-    this.manageUsers = {
-      'userOne': {loading: false, errors: {valid: false, backend: false}},
-      'userTwo': {loading: false, errors: {valid: false, backend: false}}
-    };
+    this.manageUsers[typeUser] = {loading: false, errors: {valid: false, backend: false}};
     if (form.valid) {
       this.manageUsers[typeUser]['loading'] = true;
       this.githubService.getUser(form.value[typeUser])
@@ -56,6 +53,18 @@ export class BattleComponent implements OnInit {
         });
     } else {
       this.manageUsers[typeUser]['errors']['valid'] = true;
+    }
+  }
+
+  clear(event, type){
+    console.log(event, type);
+    if(type == 'userOne'){
+      this.userOneForm.reset();
+      this.userOne = undefined;
+    }
+    if(type == 'userTwo'){
+      this.userTwoForm.reset();
+      this.userTwo = undefined;
     }
   }
 
