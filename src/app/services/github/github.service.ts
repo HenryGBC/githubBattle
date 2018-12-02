@@ -14,4 +14,9 @@ export class GithubService {
     const concatUrl = `${this.baseUrl}users/${username}`;
     return this.http.get<User>(concatUrl);
   }
+
+  getUsers(query){
+    const concatUrl = `${this.baseUrl}search/users?q=${query}`;
+    return this.http.get(concatUrl);
+  }
 }

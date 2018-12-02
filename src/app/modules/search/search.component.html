@@ -1,3 +1,28 @@
-<p>
-  search works!
-</p>
+<div class="container">
+  <div class="search">
+      <form (ngSubmit)="search()">
+        <div class="field">
+          <div class="control">
+            <input class="input is-medium" type="text" placeholder="User 1" name="query" [(ngModel)]="userQuery" >
+          </div>
+        </div>
+        <button class="button is-medium is-primary" ><span>Search</span></button>
+      </form>
+
+      <div class="cards">
+        <div class="user" *ngFor="let user of users">
+            <div class="card">
+                <div class="avatar">
+                  <img src="{{user.avatar_url}}" alt="">
+                </div>
+                <div class="card-content">
+                  <div class="username">
+                    <h2>{{user.login}}</h2>
+                  </div>
+                  <a  class="button is-medium is-primary"  href="{{user.html_url}}" target="_blank">GO</a>
+                </div>
+              </div>
+        </div>
+      </div>
+  </div>
+</div>

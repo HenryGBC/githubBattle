@@ -15,13 +15,17 @@ export class BattleComponent implements OnInit {
   userOne: User;
   userTwo: User;
   manageUsers: any;
+  usersTied: boolean;
+  showResult: boolean;
+  userWinner: User;
 
 
   constructor(private formBuilder: FormBuilder, private githubService:GithubService) { 
     this.manageUsers = {
-      'userOne': {loading: false, errors: {valid: false, backend: false}},
-      'userTwo': {loading: false, errors: {valid: false, backend: false}}
+      'userOne': {loading: false, win: false, errors: {valid: false, backend: false}},
+      'userTwo': {loading: false, win: false, errors: {valid: false, backend: false}}
     };
+    this.usersTied =  false;
   }
 
   ngOnInit() {
@@ -29,7 +33,6 @@ export class BattleComponent implements OnInit {
   }
 
   submitUser(form: any){
-    console.log(form.value);
     const typeUser = form.value.type;
     this.manageUsers[typeUser] = {loading: false, errors: {valid: false, backend: false}};
     if (form.valid) {
@@ -66,6 +69,42 @@ export class BattleComponent implements OnInit {
       this.userTwoForm.reset();
       this.userTwo = undefined;
     }
+  }
+
+  fight() {
+    const valueUserOne = this._calcPoints(this.userOne);
+    const valueUserTwo = this._calcPoints(this.userTwo);
+    console.log(valueUserOne, valueUserTwo);
+    let winner = 'tied'
+    if(valueUserOne > valueUserTwo) {
+      winner = 'userOne';
+      this.userWinner = this.userOne;
+    }
+    if(valueUserOne < valueUserTwo) {
+      this.userWinner = this.userTwo;
+    }
+    if(valueUserOne == valueUserTwo){
+      this.usersTied = true;
+    }
+    this.showResult = true;
+  }
+
+  closeResult(){
+    this.showResult = false;
+  }
+
+
+  private _calcPoints(user: User){
+    const valuesPoints = {
+      public_repos: 3,
+      public_gists: 3,
+      followers: 2,
+      following: 1
+    };
+    return Object.keys(valuesPoints)
+          .map(value => user[value] * valuesPoints[value])
+          .reduce((total, point) => total + point, 0);
+
   }
 
   private _buildForms() {
