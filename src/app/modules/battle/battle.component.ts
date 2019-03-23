@@ -30,6 +30,8 @@ export class BattleComponent implements OnInit {
 
   ngOnInit() {
     this._buildForms();
+    console.log(this.githubService.getOwnUser());
+    this.userOne = this.githubService.getOwnUser();
   }
 
   submitUser(form: any){
